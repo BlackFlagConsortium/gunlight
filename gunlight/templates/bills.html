@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css" />
+        <script src="/static/js/jquery.min.js"></script>
+        <script src="/static/js/bootstrap.js"></script>
+        <title>Virginia Firearms Bills</title>
+    </head>
+    <body>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Bill Number</th>
+                    <th>Title</th>
+                    <th>Status</th>
+                    <th>Date Introduced</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for bill in bills %}
+                <tr>
+                    <td>{{ bill.number|upper }}</td>
+                    <td><a href="/bill/{{ bill.number }}/">{{ bill.title }}</a></td>
+                    <td>{{ bill.status }}</td>
+                    <td>{{ bill.date_introduced }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+    </body>
+</html>
